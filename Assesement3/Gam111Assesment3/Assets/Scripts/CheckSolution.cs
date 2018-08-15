@@ -6,6 +6,7 @@ public class CheckSolution : MonoBehaviour {
 
     public GameObject[] Prerequsites;
     bool complete;
+    public Animator Door;
 
     // Use this for initialization
     void Start () {
@@ -26,7 +27,7 @@ public class CheckSolution : MonoBehaviour {
             }
             if (complete) // if the puzzle is complete after checking
             {
-                // do stuff
+                Door.SetTrigger("PuzzleFinished");
                 Debug.Log("Complete");
             }
         }
