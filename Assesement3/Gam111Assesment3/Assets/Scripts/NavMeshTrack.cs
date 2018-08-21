@@ -6,12 +6,13 @@ using UnityEngine.AI;
 public class NavMeshTrack : MonoBehaviour
 {
     public Transform Target; // object to track
-    public float MaxDist; // distance the object wil get closer
+    public float WalkDist; // distance the object wil get closer
+    public float RunDist; // distance the object wil get closer
     public NavMeshAgent NavMeshBody; // the navmesh component
     Vector3 Towards; // vector towards player
 
     public Animator Controller;
-    enum State { Follow, Idle, Break };
+    enum State { Walk, Idle, Play };
     State current;
 
     void Start()
@@ -24,7 +25,7 @@ public class NavMeshTrack : MonoBehaviour
     void Update()
     {
         Vector3 Towards = (Target.position - transform.position);  // create vector linking two objects
-        if ((Towards.magnitude < MaxDist)) // if within distance of player
+        if ((Towards.magnitude < WalkDist)) // if within distance of player
         {
             NavMeshBody.speed = 0;
             current = State.Idle;
@@ -32,18 +33,27 @@ public class NavMeshTrack : MonoBehaviour
         else
         {
             NavMeshBody.speed = 3.5f;
-            current = State.Follow;
+            current = State.Walk;
             NavMeshBody.destination = Target.position; // follow player set destinatiopn to player pos
-            transform.LookAt(Target); //look towards rthe player
         }
 
 
-        if (current == State.Follow)
-        {
-            Controller.SetBool("Walking", true);
+        if (current == State.Walk)
+        {     
+            if ((Towards.magnitude > RunDist))
+            {
+                Controller.SetBool("Walking", true);
+                Controller.SetBool("Running", true);
+            }
+            else
+            {
+                Controller.SetBool("Walking", true);
+                Controller.SetBool("Running", false);
+            }
         }
         else
         {
+            Controller.SetBool("Running", false);
             Controller.SetBool("Walking", false);
         }
     }

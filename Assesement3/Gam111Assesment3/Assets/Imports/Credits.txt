@@ -2,3 +2,5 @@ Bodygaurd http://www.batewar.com/
 Old house GBAndrewGB
 Mocap Data http://unity3d.com/
 Crosshair picture: https://www.google.com.au/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjVnLvEu_XcAhWBd94KHXO_A2YQjhx6BAgBEAM&url=https%3A%2F%2Fwww.iconfinder.com%2Ficons%2F259380%2Fauto_autofocus_focus_fullscreen_photo_photography_icon&psig=AOvVaw3bIrSyO1xewLxfT9Va4ORX&ust=1534642622988137
+Keypad: https://i.stack.imgur.com/nZ7BZ.png
+Reset image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqzUBuHRNnA7h-G2AvTkLnwti_Ml5hZnmk6reJvZVmq4OFR9HXzA
